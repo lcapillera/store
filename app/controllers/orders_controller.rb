@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where(user: current_user)
+    @orders = current_user.admin? ? Order.all : Order.where(user: current_user)
   end
 
   # GET /orders/1
