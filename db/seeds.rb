@@ -1,39 +1,62 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-marce = User.create!(
-  email: "marcelo@wyeworks.com",
-  password: "12341234",
-  admin: false
-)
-leo = User.create!(
-  email: "leo@wyeworks.com",
-  password: "12341234",
-  admin: false
-)
 admin = User.create!(
   email: "admin@wyeworks.com",
   password: "12341234",
   admin: true
 )
 
+marce = User.create!(
+  email: "marcelo@wyeworks.com",
+  password: "12341234",
+  admin: false
+)
+
+leo = User.create!(
+  email: "leonardo@wyeworks.com",
+  password: "12341234",
+  admin: false
+)
+
+# Admin orders
 Order.create!(
-  description: "Orden",
-  total: 200,
+  description: "Championes",
+  total: 100,
   user_id: admin.id
 )
 
 Order.create!(
-  description: "Orden",
-  total: 50,
+  description: "Mac",
+  total: 500,
+  user_id: admin.id
+)
+
+# Marcelo orders
+Order.create!(
+  description: "Chicles",
+  total: 200,
   user_id: marce.id
 )
+
 Order.create!(
-  description: "Orden",
+  description: "Bombones",
+  total: 600,
+  user_id: marce.id
+)
+
+Order.create!(
+  description: "Auto",
+  total: 1800,
+  user_id: marce.id
+)
+
+# Leonardo orders
+Order.create!(
+  description: "Camisa",
+  total: 30,
+  user_id: leo.id
+)
+
+Order.create!(
+  description: "Moto pintona",
   total: 100,
   user_id: leo.id
 )
