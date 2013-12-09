@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.includes(:orders).group(:user_id).having("SUM(orders.total) > #{min_total}").references(:orders)
+    @users = User.includes(:orders).non_admin.group(:user_id).having("SUM(orders.total) > #{min_total}").references(:orders)
   end
 
   private
