@@ -1,4 +1,5 @@
 Store::Application.routes.draw do
+  resources :users, only: :index
   resources :orders
 
   devise_for :users

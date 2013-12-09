@@ -1,0 +1,28 @@
+<h1>Top Buyers</h1>
+
+<table>
+    <tr>
+      <td> <%= link_to 'More than 60', users_path(min_total: 60) %> </td>
+      <td> <%= link_to 'More than 500', users_path(min_total: 500) %> </td>
+      <td> <%= link_to 'More than 1000', users_path(min_total: 1000) %> </td>
+      <td></td>
+    </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.total %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
