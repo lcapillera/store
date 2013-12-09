@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Total</th>
+      <th><%= link_to 'Description', orders_path(order_by: :description) %></th>
+      <th><%= link_to 'Total', orders_path(order_by: :total) %></th>
       <th>User</th>
       <th></th>
       <th></th>

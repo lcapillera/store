@@ -5,7 +5,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = current_user.admin? ? Order.all : Order.where(user: current_user)
+    @orders = Order.all
+    @orders = @orders.where(user: current_user) unless current_user.admin?
+    @orders = @orders.order(params[:order_by])
   end
 
   # GET /orders/1
